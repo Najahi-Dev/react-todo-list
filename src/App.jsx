@@ -13,6 +13,13 @@ function App() {
     toast.error("Task deleted successfully!");
   };
 
+  const toggleComplete = (index) => {
+    const updatedTodos = todos.map((todo, i) =>
+      i === index ? { ...todo, completed: !todo.completed } : todo
+    );
+    setTodos(updatedTodos);
+  };
+
   const addTodo = () => {
     if (task.trim()) {
       setTodos([...todos, task]);
